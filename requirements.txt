@@ -1,0 +1,9 @@
+Django
+djangorestframework
+django-cors-headers
+django-filter
+numpy
+pandas
+pillow
+scikit-learn
+catboost
