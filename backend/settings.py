@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'accounts',
     'foods',
     'ai',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "backend.wsgi.application"
+ASGI_APPLICATION = "backend.asgi.application"
 
 # Database setup
 DATABASES = {
