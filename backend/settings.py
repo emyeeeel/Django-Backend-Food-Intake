@@ -8,7 +8,7 @@ DEBUG = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media' 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'accounts',
     'foods',
     'ai',
-    'channels'
+    'channels',
+    "test_ws",
 ]
 
 MIDDLEWARE = [
@@ -94,3 +95,8 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
