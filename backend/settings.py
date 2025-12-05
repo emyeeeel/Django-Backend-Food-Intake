@@ -86,9 +86,13 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Add your frontend URL here
-]
+# CORS_ALLOWED_ORIGINS = [
+#     # "http://localhost:4200",  # Add your frontend URL here
+#     '*' # Allow all origins for development purposesS
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_CREDENTIALS = True  # Allow sending cookies or credentials
 
 REST_FRAMEWORK = {
