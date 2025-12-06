@@ -1,62 +1,21 @@
 {
     "ingredients": [
         {
-            "name": "Beef",
-            "food_group": "Beans/Fish/Egg/Meat",
-            "nutrients": [
-                "Protein",
-                "Fats"
-            ]
-        },
-        {
-            "name": "Noodles",
-            "food_group": "Whole Grains",
+            "name": "Potato",
+            "food_group": "蔬菜類",
             "nutrients": [
                 "Carbohydrate",
+                "Water",
                 "Total Fiber"
             ]
         },
         {
-            "name": "Onion",
-            "food_group": "Vegetables",
+            "name": "Minced meat",
+            "food_group": "豆魚蛋肉類",
             "nutrients": [
-                "Carbohydrate",
-                "Total Fiber",
-                "Water"
+                "Protein",
+                "Fats"
             ]
-        },
-        {
-            "name": "Carrots",
-            "food_group": "Vegetables",
-            "nutrients": [
-                "Carbohydrate",
-                "Total Fiber",
-                "Water"
-            ]
-        },
-        {
-            "name": "Celery",
-            "food_group": "Vegetables",
-            "nutrients": [
-                "Carbohydrate",
-                "Total Fiber",
-                "Water"
-            ]
-        },
-        {
-            "name": "Soy Sauce",
-            "food_group": "Condiments/Seasonings",
-            "nutrients": []
-        },
-        {
-            "name": "Salt",
-            "food_group": "Condiments/Seasonings",
-            "nutrients": []
-        },
-        {
-            "name": "Pepper",
-            "food_group": "Condiments/Seasonings",
-            "nutrients": []
         }
     ]
 }
