@@ -7,3 +7,7 @@ pandas
 pillow
 scikit-learn
 catboost
+python-dotenv
+channels
+daphne
+groq

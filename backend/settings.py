@@ -13,7 +13,7 @@ DEBUG = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media' 
 
-PUBLIC_DOMAIN = "https://mr7661km-8000.asse.devtunnels.ms" # Change this to server port forwarded public domain 
+PUBLIC_DOMAIN = "https://h3vkhzth-8000.asse.devtunnels.ms" # Change this to server port forwarded public domain 
 
 ALLOWED_HOSTS = ['*']
 
@@ -92,10 +92,13 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# CORS settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Add your frontend URL here
-]
+# # CORS settings
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:4200",  # Add your frontend URL here
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_CREDENTIALS = True  # Allow sending cookies or credentials
 
 REST_FRAMEWORK = {
