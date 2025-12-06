@@ -1,0 +1,33 @@
+{
+    "ingredients": [
+        {
+            "name": "Sausage",
+            "food_group": "Beans/Fish/Egg/Meat",
+            "nutrients": [
+                "Protein",
+                "Fats"
+            ]
+        },
+        {
+            "name": "Garlic",
+            "food_group": "Vegetables",
+            "nutrients": [
+                "Carbohydrate",
+                "Total Fiber",
+                "Water"
+            ]
+        },
+        {
+            "name": "Oil",
+            "food_group": "Condiments/Seasonings",
+            "nutrients": [
+                "Fats"
+            ]
+        },
+        {
+            "name": "Salt",
+            "food_group": "Condiments/Seasonings",
+            "nutrients": []
+        }
+    ]
+}
