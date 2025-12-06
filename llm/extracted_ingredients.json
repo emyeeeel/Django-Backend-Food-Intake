@@ -1,7 +1,7 @@
 {
     "ingredients": [
         {
-            "name": "Sausage",
+            "name": "Beef",
             "food_group": "Beans/Fish/Egg/Meat",
             "nutrients": [
                 "Protein",
@@ -9,7 +9,15 @@
             ]
         },
         {
-            "name": "Garlic",
+            "name": "Noodles",
+            "food_group": "Whole Grains",
+            "nutrients": [
+                "Carbohydrate",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Onion",
             "food_group": "Vegetables",
             "nutrients": [
                 "Carbohydrate",
@@ -18,14 +26,35 @@
             ]
         },
         {
-            "name": "Oil",
-            "food_group": "Condiments/Seasonings",
+            "name": "Carrots",
+            "food_group": "Vegetables",
             "nutrients": [
-                "Fats"
+                "Carbohydrate",
+                "Total Fiber",
+                "Water"
             ]
         },
         {
+            "name": "Celery",
+            "food_group": "Vegetables",
+            "nutrients": [
+                "Carbohydrate",
+                "Total Fiber",
+                "Water"
+            ]
+        },
+        {
+            "name": "Soy Sauce",
+            "food_group": "Condiments/Seasonings",
+            "nutrients": []
+        },
+        {
             "name": "Salt",
+            "food_group": "Condiments/Seasonings",
+            "nutrients": []
+        },
+        {
+            "name": "Pepper",
             "food_group": "Condiments/Seasonings",
             "nutrients": []
         }
