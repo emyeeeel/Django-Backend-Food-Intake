@@ -26,6 +26,7 @@ urlpatterns = [
     path('api/', include('meals.urls')),
     path('api/', include('foods.urls')), 
     path('api/', include('ai.urls')),
+    path('api/', include('llm.urls')),
 ]
 
 # Only in development (DEBUG=True)

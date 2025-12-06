@@ -1,4 +1,9 @@
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -8,7 +13,9 @@ DEBUG = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media' 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+PUBLIC_DOMAIN = "https://mr7661km-8000.asse.devtunnels.ms" # Change this to server port forwarded public domain 
+
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -26,7 +33,8 @@ INSTALLED_APPS = [
     'accounts',
     'foods',
     'ai',
-    'channels'
+    'channels',
+    'llm'
 ]
 
 MIDDLEWARE = [
