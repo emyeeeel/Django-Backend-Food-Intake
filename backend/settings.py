@@ -12,7 +12,9 @@ DEBUG = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media' 
 
-PUBLIC_DOMAIN = "https://h3vkhzth-8000.asse.devtunnels.ms" # Change this to server port forwarded public domain 
+# PUBLIC_DOMAIN = "https://mr7661km-8000.asse.devtunnels.ms" # test port works 
+
+PUBLIC_DOMAIN = "https://h3vkhzth-8000.asse.devtunnels.ms" # port forwarded public domain for 5090 PC server
 
 ALLOWED_HOSTS = ['*']
 

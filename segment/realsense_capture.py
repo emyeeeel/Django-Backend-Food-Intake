@@ -3,8 +3,10 @@ import numpy as np
 import cv2
 import os
 
-# Ensure media/capture folder exists
-MEDIA_CAPTURE_DIR = os.path.join("media", "capture")
+from django.conf import settings
+
+# Ensure media/capture folder exists inside MEDIA_ROOT
+MEDIA_CAPTURE_DIR = os.path.join(settings.MEDIA_ROOT, "capture")
 os.makedirs(MEDIA_CAPTURE_DIR, exist_ok=True)
 
 
