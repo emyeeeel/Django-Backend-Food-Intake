@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from backend import settings
 from .models import Meal, MealAssignment
-from patients.models import Patient  # if needed
 
 class MealAssignmentSerializer(serializers.ModelSerializer):
     class Meta:
