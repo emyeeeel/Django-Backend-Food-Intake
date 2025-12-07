@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/', include('foods.urls')), 
     path('api/', include('ai.urls')),
     path('api/', include('llm.urls')),
+    path('api/', include('segment.urls')),
 ]
 
 # Only in development (DEBUG=True)

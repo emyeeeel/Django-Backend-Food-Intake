@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'foods',
     'ai',
     'channels',
-    'llm'
+    'llm',
+    'segment'
 ]
 
 MIDDLEWARE = [
