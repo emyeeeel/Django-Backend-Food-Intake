@@ -5,23 +5,11 @@ from django.conf import settings
 import numpy as np
 import cv2
 
-from .realsense_capture import (
-    capture_realsense_image,
-    save_depth_and_rgb,
-    telea_inpaint_and_save
-)
-
 # -------------------------
 # Segment Upload Folder
 # -------------------------
 SEGMENT_UPLOAD_DIR = os.path.join(settings.MEDIA_ROOT, "segment_uploads")
 os.makedirs(SEGMENT_UPLOAD_DIR, exist_ok=True)
-
-# -------------------------
-# Capture Output Folder
-# -------------------------
-CAPTURE_DIR = os.path.join(settings.MEDIA_ROOT, "capture")
-os.makedirs(CAPTURE_DIR, exist_ok=True)
 
 
 # =====================================================
@@ -77,37 +65,3 @@ def segment_view(request):
 
     except Exception as e:
         return JsonResponse({"error": f"File save/load error: {str(e)}"}, status=500)
-
-
-# =====================================================
-# Capture Endpoint: Trigger RealSense + Telea Inpaint
-# =====================================================
-def capture_view(request):
-    if request.method != "GET":
-        return JsonResponse({"error": "Use GET method"}, status=405)
-
-    try:
-        # Capture images from RealSense
-        depth, color = capture_realsense_image()
-
-        # Save images to capture folder
-        rgb_path, depth_csv_path, depth_jet_path, mask_path = save_depth_and_rgb(depth, color)
-
-        # Telea inpainting
-        inpainted_path, inpaint_csv_path = telea_inpaint_and_save()
-
-        # Build public URLs
-        rgb_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}capture/{os.path.basename(rgb_path)}"
-        depth_csv_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}capture/{os.path.basename(inpaint_csv_path)}"
-        depth_preview_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}capture/{os.path.basename(inpainted_path)}"
-
-        return JsonResponse({
-            "status": "success",
-            "message": "Capture complete",
-            "rgb_image": rgb_url,
-            "depth_csv": depth_csv_url,
-            "depth_preview": depth_preview_url
-        })
-
-    except Exception as e:
-        return JsonResponse({"error": str(e)}, status=500)
