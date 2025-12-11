@@ -19,6 +19,13 @@ class Meal(models.Model):
         ('陶瓷碗', 'Ceramic Bowl'),
     )
 
+    meal_name = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True
+    )
+
+
     meal_time = models.CharField(
         max_length=20,
         choices=MEAL_TIME_CHOICES,
@@ -33,7 +40,11 @@ class Meal(models.Model):
         blank=True,
     )
 
-    meal_description = models.CharField(max_length=255)
+    meal_description = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+    )
 
     plate_type = models.CharField(
         max_length=50,

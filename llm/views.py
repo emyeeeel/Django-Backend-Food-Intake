@@ -5,9 +5,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from foods.models import Ingredient, FoodGroup, Nutrient
+from meals.models import Meal   # <<< ADD THIS
 from .extract_ingredients import extract_ingredients_from_meal
 
-# Optional mapping if LLM returns English names (not needed if prompt outputs Chinese)
 FOOD_GROUPS = {
     "Whole Grains": "全穀雜糧類",
     "Beans/Fish/Egg/Meat": "豆魚蛋肉類",
@@ -21,71 +21,119 @@ FOOD_GROUPS = {
 
 class MealToIngredientAPIView(APIView):
     def post(self, request):
-        meal = request.data.get("meal")
-        if not meal:
-            return Response({"error": "Meal parameter is required"}, status=status.HTTP_400_BAD_REQUEST)
+        meal_name = request.data.get("meal_name")  # unique identifier for the meal
+        meal_text = request.data.get("meal")  # optional description
+        meal_time = request.data.get("meal_time")  # optional
+        day_cycle = request.data.get("day_cycle")  # optional
+        plate_type = request.data.get("plate_type")  # optional
+
+        if not meal_name:
+            return Response({"error": "Meal name is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Use meal_name as default description if meal text not provided
+        if not meal_text:
+            meal_text = meal_name
 
         try:
-            # Extract ingredients using the LLM
-            data = extract_ingredients_from_meal(meal)
+            created_ingredients = []
+            ingredient_ids = []
 
-            # Save JSON for debugging/logging
-            json_path = os.path.join(os.path.dirname(__file__), "extracted_ingredients.json")
-            with open(json_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
+            # Only extract ingredients if meal_text is meaningful
+            if meal_text:
+                data = extract_ingredients_from_meal(meal_text)
 
-            # Fetch existing ingredients from DB
-            existing_ingredients = Ingredient.objects.values_list('name', flat=True)
-            existing_ingredients = [name.lower() for name in existing_ingredients]
+                # Save JSON for debugging/logging
+                json_path = os.path.join(os.path.dirname(__file__), "extracted_ingredients.json")
+                with open(json_path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=4)
 
-            created = []
+                # Fetch existing ingredient names
+                existing_ingredients = Ingredient.objects.values_list('name', flat=True)
+                existing_ingredients = [name.lower() for name in existing_ingredients]
 
-            # Process ingredients
-            for item in data.get("ingredients", []):
-                name_lower = item["name"].lower()
-                if name_lower in existing_ingredients:
-                    print(f"{item['name']} already exists, skipping creation.")
-                    continue  # Skip existing ingredients
+                # --- Process ingredients ---
+                for item in data.get("ingredients", []):
+                    name_lower = item["name"].lower()
+                    food_group_name = item["food_group"]
+                    try:
+                        fg = FoodGroup.objects.get(name=food_group_name)
+                    except FoodGroup.DoesNotExist:
+                        return Response(
+                            {"error": f"Invalid food group: {food_group_name}"},
+                            status=status.HTTP_400_BAD_REQUEST
+                        )
 
-                # Ensure food group exists in DB and is one of the 7 fixed groups
-                food_group_name = item["food_group"]
-                # Optional mapping if needed:
-                # food_group_name = FOOD_GROUPS.get(item["food_group"], item["food_group"])
+                    nutrient_ids = []
+                    for n in item.get("nutrients", []):
+                        nut, _ = Nutrient.objects.get_or_create(name=n)
+                        nutrient_ids.append(nut)
 
-                try:
-                    fg = FoodGroup.objects.get(name=food_group_name)
-                except FoodGroup.DoesNotExist:
-                    return Response(
-                        {"error": f"Invalid food group: {food_group_name}"},
-                        status=status.HTTP_400_BAD_REQUEST
-                    )
+                    ingredient, created_flag = Ingredient.objects.get_or_create(name=item["name"])
+                    if ingredient.food_group is None:
+                        ingredient.food_group = fg
+                    ingredient.nutrients.set(nutrient_ids)
+                    ingredient.save()
 
-                # Create or get nutrient instances
-                nutrient_ids = []
-                for n in item.get("nutrients", []):
-                    nut, _ = Nutrient.objects.get_or_create(name=n)
-                    nutrient_ids.append(nut)
+                    ingredient_ids.append(ingredient.id)
 
-                # Create the ingredient
-                ingredient, _ = Ingredient.objects.get_or_create(
-                    name=item["name"],
-                    defaults={"food_group": fg}
-                )
-                ingredient.nutrients.set(nutrient_ids)
-                ingredient.save()
+                    created_ingredients.append({
+                        "name": ingredient.name,
+                        "food_group": ingredient.food_group.name,
+                        "nutrients": [nut.name for nut in ingredient.nutrients.all()],
+                        "created": created_flag
+                    })
 
-                created.append({
-                    "name": ingredient.name,
-                    "food_group": ingredient.food_group.name,
-                    "nutrients": [nut.name for nut in ingredient.nutrients.all()]
-                })
+            # --- Create or update meal ---
+            meal, created = Meal.objects.get_or_create(
+                meal_name=meal_name,
+                defaults={
+                    "meal_description": meal_text,
+                    "meal_time": meal_time,
+                    "day_cycle": day_cycle,
+                    "plate_type": plate_type
+                }
+            )
 
-        except json.JSONDecodeError:
-            return Response({"error": "Failed to parse LLM response"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        except KeyError as e:
-            return Response({"error": f"Missing required field in LLM response: {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            updated = False
+            if not created:
+                if meal.meal_description != meal_text or \
+                   meal.meal_time != meal_time or \
+                   meal.day_cycle != day_cycle or \
+                   meal.plate_type != plate_type:
+                    meal.meal_description = meal_text
+                    meal.meal_time = meal_time or meal.meal_time
+                    meal.day_cycle = day_cycle or meal.day_cycle
+                    meal.plate_type = plate_type or meal.plate_type
+                    updated = True
+
+            if ingredient_ids:
+                current_ingredient_ids = set(meal.ingredients.values_list('id', flat=True))
+                new_ingredient_ids = set(ingredient_ids)
+                if current_ingredient_ids != new_ingredient_ids:
+                    meal.ingredients.set(ingredient_ids)
+                    updated = True
+
+            if updated:
+                meal.save()
+
+            meal_data = {
+                "id": meal.id,
+                "meal_name": meal.meal_name,
+                "meal_time": meal.meal_time,
+                "day_cycle": meal.day_cycle,
+                "meal_description": meal.meal_description,
+                "plate_type": meal.plate_type,
+                "ingredients": list(meal.ingredients.values_list('id', flat=True)),
+                "created": created,
+                "updated": updated
+            }
+
+            return Response({
+                "ingredients": created_ingredients,
+                "meal": meal_data
+            })
+
         except Exception as e:
-            print(f"General error: {e}")
+            print("General error:", e)
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        return Response({"ingredients": created})
