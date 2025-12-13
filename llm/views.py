@@ -26,6 +26,7 @@ class MealToIngredientAPIView(APIView):
         meal_time = request.data.get("meal_time")  # optional
         day_cycle = request.data.get("day_cycle")  # optional
         plate_type = request.data.get("plate_type")  # optional
+        meal_image = request.FILES.get("image")  # handle uploaded image
 
         if not meal_name:
             return Response({"error": "Meal name is required"}, status=status.HTTP_400_BAD_REQUEST)
@@ -38,20 +39,17 @@ class MealToIngredientAPIView(APIView):
             created_ingredients = []
             ingredient_ids = []
 
-            # Only extract ingredients if meal_text is meaningful
+            # --- Extract ingredients as before ---
             if meal_text:
                 data = extract_ingredients_from_meal(meal_text)
-
-                # Save JSON for debugging/logging
+                # save JSON for debugging
                 json_path = os.path.join(os.path.dirname(__file__), "extracted_ingredients.json")
                 with open(json_path, "w", encoding="utf-8") as f:
                     json.dump(data, f, ensure_ascii=False, indent=4)
 
-                # Fetch existing ingredient names
                 existing_ingredients = Ingredient.objects.values_list('name', flat=True)
                 existing_ingredients = [name.lower() for name in existing_ingredients]
 
-                # --- Process ingredients ---
                 for item in data.get("ingredients", []):
                     name_lower = item["name"].lower()
                     food_group_name = item["food_group"]
@@ -90,7 +88,8 @@ class MealToIngredientAPIView(APIView):
                     "meal_description": meal_text,
                     "meal_time": meal_time,
                     "day_cycle": day_cycle,
-                    "plate_type": plate_type
+                    "plate_type": plate_type,
+                    "image": meal_image
                 }
             )
 
@@ -99,11 +98,14 @@ class MealToIngredientAPIView(APIView):
                 if meal.meal_description != meal_text or \
                    meal.meal_time != meal_time or \
                    meal.day_cycle != day_cycle or \
-                   meal.plate_type != plate_type:
+                   meal.plate_type != plate_type or \
+                   (meal_image is not None):
                     meal.meal_description = meal_text
                     meal.meal_time = meal_time or meal.meal_time
                     meal.day_cycle = day_cycle or meal.day_cycle
                     meal.plate_type = plate_type or meal.plate_type
+                    if meal_image is not None:
+                        meal.image = meal_image
                     updated = True
 
             if ingredient_ids:
@@ -123,6 +125,7 @@ class MealToIngredientAPIView(APIView):
                 "day_cycle": meal.day_cycle,
                 "meal_description": meal.meal_description,
                 "plate_type": meal.plate_type,
+                "image": meal.image.url if meal.image else None,
                 "ingredients": list(meal.ingredients.values_list('id', flat=True)),
                 "created": created,
                 "updated": updated
@@ -136,4 +139,3 @@ class MealToIngredientAPIView(APIView):
         except Exception as e:
             print("General error:", e)
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
