@@ -7,6 +7,12 @@ class MealViewSet(ModelViewSet):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
 
+    # Add filter backend
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+
+    # Enable exact filtering
+    filterset_fields = ['meal_name']  
+
     # Ensure the request context is passed for image URLs
     def get_serializer_context(self):
         context = super().get_serializer_context()
