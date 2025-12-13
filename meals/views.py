@@ -2,7 +2,8 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Meal, MealAssignment
 from .serializers import MealAssignmentSerializer, MealSerializer
 from django_filters.rest_framework import DjangoFilterBackend
-
+from rest_framework import filters
+ 
 class MealViewSet(ModelViewSet):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer

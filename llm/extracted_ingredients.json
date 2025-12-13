@@ -1,3 +1,100 @@
 {
-    "ingredients": []
+    "ingredients": [
+        {
+            "name": "Rice",
+            "food_group": "全穀雜糧類",
+            "nutrients": [
+                "Carbohydrate",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Curry Powder",
+            "food_group": "調味品類",
+            "nutrients": []
+        },
+        {
+            "name": "Oil",
+            "food_group": "調味品類",
+            "nutrients": [
+                "Fats"
+            ]
+        },
+        {
+            "name": "Soy Sauce",
+            "food_group": "調味品類",
+            "nutrients": []
+        },
+        {
+            "name": "Onion",
+            "food_group": "蔬菜類",
+            "nutrients": [
+                "Carbohydrate",
+                "Water",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Garlic",
+            "food_group": "蔬菜類",
+            "nutrients": [
+                "Carbohydrate",
+                "Water",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Carrot",
+            "food_group": "蔬菜類",
+            "nutrients": [
+                "Carbohydrate",
+                "Water",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Pea",
+            "food_group": "蔬菜類",
+            "nutrients": [
+                "Carbohydrate",
+                "Protein",
+                "Water",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Bell Pepper",
+            "food_group": "蔬菜類",
+            "nutrients": [
+                "Carbohydrate",
+                "Water",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Scallion",
+            "food_group": "蔬菜類",
+            "nutrients": [
+                "Carbohydrate",
+                "Water",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Egg",
+            "food_group": "豆魚蛋肉類",
+            "nutrients": [
+                "Protein",
+                "Fats"
+            ]
+        },
+        {
+            "name": "Chicken",
+            "food_group": "豆魚蛋肉類",
+            "nutrients": [
+                "Protein",
+                "Fats"
+            ]
+        }
+    ]
 }
