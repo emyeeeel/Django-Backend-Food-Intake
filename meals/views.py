@@ -1,24 +1,15 @@
 from rest_framework.viewsets import ModelViewSet
+from meals.filters import MealFilter
 from .models import Meal, MealAssignment
 from .serializers import MealAssignmentSerializer, MealSerializer
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters
- 
+
+
 class MealViewSet(ModelViewSet):
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
-
-    # Add filter backend
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-
-    # Enable exact filtering
-    filterset_fields = ['meal_name']  
-
-    # Ensure the request context is passed for image URLs
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
-        context.update({"request": self.request})
-        return context
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = MealFilter
 
 class MealAssignmentViewSet(ModelViewSet):
     queryset = MealAssignment.objects.all()
