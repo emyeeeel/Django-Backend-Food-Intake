@@ -13,7 +13,7 @@ from ultralytics import YOLO
 # ================================
 # YOLO MODEL LOAD (cached)
 # ================================
-YOLO_MODEL_PATH = r"C:\Users\USER\Documents\Amiel Files\Food Intake\Django-Backend-Food-Intake-\segment\models\yolo-model.pt"
+YOLO_MODEL_PATH = r"C:\Users\USER\Documents\Amiel Files\Food Intake\Django-Backend-Food-Intake-\segment\models\best.pt"
 
 yolo_model = None
 def load_yolo_model():
@@ -68,9 +68,11 @@ def yolo_segment_view(request, meal_type):
         # Run inference
         results = model.predict(
             rgb_path,
-            conf=0.15,
+            conf=0.30,    
+            iou=0.5,
             task="segment",
-            imgsz=(848, 480)
+            imgsz=(848, 480),
+            augment=True
         )
 
         result = results[0]
