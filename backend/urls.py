@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/', include('ai.urls')),
     path('api/', include('llm.urls')),
     path('api/', include('segment.urls')),
+    path('api/weights/', include('weights.urls')),
 ]
 
 # Only in development (DEBUG=True)

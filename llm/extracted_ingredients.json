@@ -1,7 +1,7 @@
 {
     "ingredients": [
         {
-            "name": "rice",
+            "name": "Flour",
             "food_group": "全穀雜糧類",
             "nutrients": [
                 "Carbohydrate",
@@ -9,21 +9,42 @@
             ]
         },
         {
-            "name": "nori",
-            "food_group": "蔬菜類",
+            "name": "Sugar",
+            "food_group": "調味品類",
             "nutrients": [
-                "Protein",
-                "Total Fiber",
-                "Water"
+                "Carbohydrate"
             ]
         },
         {
-            "name": "salt",
+            "name": "Yeast",
+            "food_group": "調味品類",
+            "nutrients": [
+                "Protein"
+            ]
+        },
+        {
+            "name": "Salt",
             "food_group": "調味品類",
             "nutrients": []
         },
         {
-            "name": "salmon",
+            "name": "Milk",
+            "food_group": "乳品類",
+            "nutrients": [
+                "Protein",
+                "Fats",
+                "Carbohydrate"
+            ]
+        },
+        {
+            "name": "Butter",
+            "food_group": "調味品類",
+            "nutrients": [
+                "Fats"
+            ]
+        },
+        {
+            "name": "Eggs",
             "food_group": "豆魚蛋肉類",
             "nutrients": [
                 "Protein",

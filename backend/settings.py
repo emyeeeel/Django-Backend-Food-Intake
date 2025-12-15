@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'ai',
     'channels',
     'llm',
-    'segment'
+    'segment',
+    'weights',
 ]
 
 MIDDLEWARE = [
