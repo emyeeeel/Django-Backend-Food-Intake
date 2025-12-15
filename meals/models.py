@@ -102,3 +102,30 @@ class MealAssignment(models.Model):
 
     def __str__(self):
         return f"{self.patient.name} - {self.meal_type} Day {self.day_cycle}"
+    
+
+# --- Food Intake Record ---
+
+class FoodIntake(models.Model):
+    patient = models.ForeignKey(
+        Patient,
+        on_delete=models.CASCADE,
+        related_name="food_intakes"
+    )
+    meal = models.ForeignKey(
+        Meal,
+        on_delete=models.CASCADE,
+        related_name="food_intakes"
+    )
+    weight_g = models.FloatField(null=True, blank=True, help_text="Weight of food consumed in grams")
+    volume_ml = models.FloatField(null=True, blank=True, help_text="Volume of food consumed in milliliters")
+    
+    consumed_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Food Intake"
+        verbose_name_plural = "Food Intakes"
+        unique_together = ("patient", "meal")  # Optional: one intake per meal per patient
+
+    def __str__(self):
+        return f"{self.patient.name} - {self.meal} ({self.weight_g}g, {self.volume_ml}ml)"

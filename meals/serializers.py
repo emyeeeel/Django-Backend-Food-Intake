@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from backend import settings
-from .models import Meal, MealAssignment
+from .models import FoodIntake, Meal, MealAssignment
 
 class MealAssignmentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,3 +24,9 @@ class MealSerializer(serializers.ModelSerializer):
                 f"{instance.image.name}"
             )
         return data
+
+class FoodIntakeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FoodIntake
+        fields = ['id', 'patient', 'meal', 'weight_g', 'volume_ml', 'consumed_at']
+        read_only_fields = ['id', 'consumed_at']
