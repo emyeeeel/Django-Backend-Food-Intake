@@ -18,26 +18,24 @@ CURRENT_CONTAINER = 'none'
 
 @csrf_exempt
 def receive_raw(request):
-    # FORCE PRINT TO TERMINAL (Bypassing Django's silence)
-    sys.stdout.write(f"\n[HIT] Method: {request.method} | Body: {request.body[:50]}...\n")
-    sys.stdout.flush() 
+    # --- SILENCE THE LOGS (STEALTH MODE) ---
+    # The data still arrives, but the terminal stays clean.
+    
+    # sys.stdout.write(f"\n[HIT] Method: {request.method} | Body: {request.body[:50]}...\n")  <-- COMMENT THIS
+    # sys.stdout.flush()                                                                      <-- COMMENT THIS
 
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            # Update Global Variable
             global CURRENT_RAW_WEIGHT
             CURRENT_RAW_WEIGHT = data.get('raw_weight', 0.0)
             
-            # Print Success Message
-            sys.stdout.write(f" -> SUCCESS! Updated Weight to: {CURRENT_RAW_WEIGHT}\n")
-            sys.stdout.flush()
+            # sys.stdout.write(f" -> SUCCESS! Updated Weight to: {CURRENT_RAW_WEIGHT}\n")   <-- COMMENT THIS
+            # sys.stdout.flush()                                                             <-- COMMENT THIS
             
             return JsonResponse({'status': 'ok'})
-        except Exception as e:
-            sys.stdout.write(f" -> ERROR: {e}\n")
-            sys.stdout.flush()
-    
+        except:
+            pass
     return JsonResponse({'status': 'error'}, status=400)
 
 @csrf_exempt
