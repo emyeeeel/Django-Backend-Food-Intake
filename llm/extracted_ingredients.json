@@ -1,6 +1,15 @@
 {
     "ingredients": [
         {
+            "name": "Chicken",
+            "food_group": "豆魚蛋肉類",
+            "nutrients": [
+                "Protein",
+                "Fats",
+                "Water"
+            ]
+        },
+        {
             "name": "Flour",
             "food_group": "全穀雜糧類",
             "nutrients": [
@@ -9,17 +18,27 @@
             ]
         },
         {
-            "name": "Sugar",
-            "food_group": "調味品類",
+            "name": "Eggs",
+            "food_group": "豆魚蛋肉類",
             "nutrients": [
-                "Carbohydrate"
+                "Protein",
+                "Fats",
+                "Water"
             ]
         },
         {
-            "name": "Yeast",
+            "name": "Breadcrumbs",
+            "food_group": "全穀雜糧類",
+            "nutrients": [
+                "Carbohydrate",
+                "Total Fiber"
+            ]
+        },
+        {
+            "name": "Oil",
             "food_group": "調味品類",
             "nutrients": [
-                "Protein"
+                "Fats"
             ]
         },
         {
@@ -28,28 +47,19 @@
             "nutrients": []
         },
         {
-            "name": "Milk",
-            "food_group": "乳品類",
-            "nutrients": [
-                "Protein",
-                "Fats",
-                "Carbohydrate"
-            ]
-        },
-        {
-            "name": "Butter",
+            "name": "Pepper",
             "food_group": "調味品類",
-            "nutrients": [
-                "Fats"
-            ]
+            "nutrients": []
         },
         {
-            "name": "Eggs",
-            "food_group": "豆魚蛋肉類",
-            "nutrients": [
-                "Protein",
-                "Fats"
-            ]
+            "name": "Garlic Powder",
+            "food_group": "調味品類",
+            "nutrients": []
+        },
+        {
+            "name": "Paprika",
+            "food_group": "調味品類",
+            "nutrients": []
         }
     ]
 }

@@ -3,6 +3,7 @@ import csv
 import numpy as np
 import cv2
 import torch
+import json
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -15,7 +16,7 @@ from ultralytics import YOLO
 # ================================
 # YOLO MODEL LOAD (cached)
 # ================================
-YOLO_MODEL_PATH = r"C:\Users\HP\OneDrive\Documents\TEEP\Food Intake App\backend\segment\models\best.pt"
+YOLO_MODEL_PATH = r"C:\Users\USER\Documents\Amiel Files\Food Intake\Django-Backend-Food-Intake-\segment\models\best.pt"
 
 yolo_model = None
 
@@ -35,15 +36,8 @@ def save_class_mask_csvs(result, model, meal_type):
     """
     Saves one CSV per detected class.
     CSV contains 1 for mask pixels, 0 otherwise.
+    Clears old CSVs first.
     """
-    if result.masks is None or result.boxes is None:
-        return {}
-
-    masks = result.masks.data.cpu()          # (N, H, W)
-    class_ids = result.boxes.cls.cpu().numpy().astype(int)
-
-    H, W = masks.shape[1], masks.shape[2]
-
     masks_dir = os.path.join(
         settings.MEDIA_ROOT,
         "yolo_output",
@@ -52,13 +46,23 @@ def save_class_mask_csvs(result, model, meal_type):
     )
     os.makedirs(masks_dir, exist_ok=True)
 
+    # ✅ Always clear old CSVs first
+    for f in os.listdir(masks_dir):
+        if f.endswith(".csv"):
+            os.remove(os.path.join(masks_dir, f))
+
+    # ❗ Now check if there are any masks
+    if result.masks is None or result.boxes is None:
+        return {}
+
+    masks = result.masks.data.cpu()          # (N, H, W)
+    class_ids = result.boxes.cls.cpu().numpy().astype(int)
+
     class_to_mask = {}
 
-    # Group instance masks by class
     for idx, class_id in enumerate(class_ids):
         class_name = model.names[class_id]
-
-        binary_mask = (masks[idx] > 0).int()  # (H, W)
+        binary_mask = (masks[idx] > 0).int()
 
         if class_name not in class_to_mask:
             class_to_mask[class_name] = binary_mask.clone()
@@ -70,71 +74,81 @@ def save_class_mask_csvs(result, model, meal_type):
 
     saved_paths = {}
 
-    # Save CSV per class
     for class_name, mask_tensor in class_to_mask.items():
         csv_path = os.path.join(masks_dir, f"{class_name}.csv")
 
         with open(csv_path, "w", newline="") as f:
             writer = csv.writer(f)
-            for row in mask_tensor.numpy():
-                writer.writerow(row.tolist())
+            writer.writerows(mask_tensor.numpy().tolist())
 
         saved_paths[class_name] = csv_path
 
     return saved_paths
 
 
-# =====================================================
+import json
+import pandas as pd
+
+# ==============================
 # YOLO Inference Endpoint
-# =====================================================
+# ==============================
 @csrf_exempt
 def yolo_segment_view(request, meal_type):
-    """
-    Accepts POST with an RGB image, runs YOLO segmentation,
-    saves overlay image and per-class mask CSVs.
-    """
+    import traceback
+
     if meal_type not in ["before", "after"]:
-        return JsonResponse(
-            {"error": "Invalid meal type. Use /yolo/before or /yolo/after"},
-            status=400
-        )
+        return JsonResponse({"error": "Invalid meal type. Use /yolo/before or /yolo/after"}, status=400)
 
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
 
     rgb_file = request.FILES.get("rgb_image")
-    if not rgb_file:
-        return JsonResponse({"error": "rgb_image is required"}, status=400)
+    depth_csv_file = request.FILES.get("depth_csv")
+    raw_weight_str = request.POST.get("raw_weight")
 
-    # ------------------------------
-    # Save uploaded RGB image
-    # ------------------------------
-    SEGMENT_UPLOAD_DIR = os.path.join(settings.MEDIA_ROOT, "segment_uploads")
-    os.makedirs(SEGMENT_UPLOAD_DIR, exist_ok=True)
-
-    rgb_filename = f"uploaded_rgb_{meal_type}.png"
-    rgb_path = os.path.join(SEGMENT_UPLOAD_DIR, rgb_filename)
-
-    with open(rgb_path, "wb") as f:
-        for chunk in rgb_file.chunks():
-            f.write(chunk)
-
-    # ------------------------------
-    # YOLO output paths
-    # ------------------------------
-    YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output", meal_type)
-    os.makedirs(YOLO_OUTPUT_DIR, exist_ok=True)
-
-    output_image_path = os.path.join(
-        YOLO_OUTPUT_DIR,
-        f"segmented_yolo_{meal_type}.png"
-    )
+    if not rgb_file or not depth_csv_file or raw_weight_str is None:
+        return JsonResponse({"error": "rgb_image, depth_csv, and raw_weight are required"}, status=400)
 
     try:
-        # Load YOLO model
-        model = load_yolo_model()
+        raw_weight = float(raw_weight_str)
+    except ValueError:
+        return JsonResponse({"error": "raw_weight must be numeric"}, status=400)
 
-        # Run inference
+    try:
+        # ----------------------
+        # Save uploads
+        # ----------------------
+        SEGMENT_UPLOAD_DIR = os.path.join(settings.MEDIA_ROOT, "segment_uploads")
+        os.makedirs(SEGMENT_UPLOAD_DIR, exist_ok=True)
+
+        rgb_filename = f"uploaded_rgb_{meal_type}.png"
+        rgb_path = os.path.join(SEGMENT_UPLOAD_DIR, rgb_filename)
+
+        depth_filename = f"uploaded_depth_{meal_type}.csv"
+        depth_path = os.path.join(SEGMENT_UPLOAD_DIR, depth_filename)
+
+        with open(rgb_path, "wb") as f:
+            for chunk in rgb_file.chunks():
+                f.write(chunk)
+        with open(depth_path, "wb") as f:
+            for chunk in depth_csv_file.chunks():
+                f.write(chunk)
+
+        # ----------------------
+        # YOLO output paths
+        # ----------------------
+        YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output", meal_type)
+        MASKS_WITH_DEPTH_DIR = os.path.join(YOLO_OUTPUT_DIR, "masks_with_depth")
+        os.makedirs(YOLO_OUTPUT_DIR, exist_ok=True)
+        os.makedirs(MASKS_WITH_DEPTH_DIR, exist_ok=True)
+
+        output_filename = f"segmented_yolo_{meal_type}.png"
+        output_image_path = os.path.join(YOLO_OUTPUT_DIR, output_filename)
+
+        # ----------------------
+        # Load YOLO model and predict
+        # ----------------------
+        model = load_yolo_model()
         results = model.predict(
             rgb_path,
             conf=0.30,
@@ -143,74 +157,144 @@ def yolo_segment_view(request, meal_type):
             imgsz=(848, 480),
             augment=True
         )
-
         result = results[0]
 
         # Save overlay image
         result.save(filename=output_image_path)
 
-        # Extract classes
-        class_ids = (
-            result.boxes.cls.cpu().numpy().astype(int)
-            if result.boxes is not None
-            else []
-        )
-        class_names = sorted(list(set(model.names[c] for c in class_ids)))
-        mask_count = len(result.masks.data) if result.masks is not None else 0
-
-        # Save per-class mask CSVs
+        # Save per-class masks CSV
         mask_csv_paths = save_class_mask_csvs(result, model, meal_type)
+
+        # ----------------------
+        # Compute volumes
+        # ----------------------
+        BASE_HEIGHT_MM = 600.0
+        FX = 617.0
+        FY = 617.0
+
+        volume_dict = {}
+        for class_name, csv_path in mask_csv_paths.items():
+            try:
+                depth_masked = pd.read_csv(depth_path, header=None).to_numpy()
+                mask = pd.read_csv(csv_path, header=None).to_numpy()
+
+                if depth_masked.shape != mask.shape:
+                    mask = cv2.resize(mask, (depth_masked.shape[1], depth_masked.shape[0]), interpolation=cv2.INTER_NEAREST)
+
+                depth_masked = depth_masked * mask
+                food_pixels = depth_masked > 0
+                food_depth = depth_masked[food_pixels]
+
+                if food_depth.size == 0:
+                    volume_dict[class_name] = 0.0
+                    continue
+
+                heights = np.clip(BASE_HEIGHT_MM - food_depth, 0, None)
+                pixel_area_per_pixel = (food_depth ** 2) / (FX * FY)
+                volume_per_pixel = heights * pixel_area_per_pixel
+                volume_mm3 = np.sum(volume_per_pixel)
+                volume_ml = volume_mm3 / 1000.0
+
+                volume_dict[class_name] = float(volume_ml)
+
+            except Exception:
+                traceback.print_exc()
+                volume_dict[class_name] = None
+
+        # ----------------------
+        # Save raw_weight and volumes JSON
+        # ----------------------
+        with open(os.path.join(YOLO_OUTPUT_DIR, "raw_weight.json"), "w") as f:
+            json.dump({"raw_weight": raw_weight}, f)
+
+        with open(os.path.join(YOLO_OUTPUT_DIR, "estimated_volumes.json"), "w") as f:
+            json.dump(volume_dict, f)
+
+        # ----------------------
+        # Build public URLs
+        # ----------------------
+        input_image_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}segment_uploads/{rgb_filename}"
+        depth_csv_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}segment_uploads/{depth_filename}"
+        output_image_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}yolo_output/{meal_type}/{output_filename}"
+        mask_csv_urls = {
+            class_name: f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}yolo_output/{meal_type}/masks_csv/{class_name}.csv"
+            for class_name in mask_csv_paths.keys()
+        }
 
         return JsonResponse({
             "status": "success",
             "meal_type": meal_type,
-            "input_image_path": rgb_path,
-            "output_image_path": output_image_path,
-            "num_classes": len(class_names),
-            "class_names": class_names,
-            "mask_count": mask_count,
-            "mask_csv_saved_for_classes": list(mask_csv_paths.keys()),
+            "input_image_url": input_image_url,
+            "depth_csv_url": depth_csv_url,
+            "output_image_url": output_image_url,
+            "mask_csv_urls": mask_csv_urls,
+            "num_classes": len(mask_csv_paths),
+            "class_names": list(mask_csv_paths.keys()),
+            "mask_count": len(mask_csv_paths),
+            "raw_weight": raw_weight,
+            "estimated_volumes_ml": volume_dict
         })
 
     except Exception as e:
-        return JsonResponse(
-            {"error": f"YOLO inference failed: {str(e)}"},
-            status=500
-        )
+        traceback.print_exc()
+        return JsonResponse({"error": f"YOLO inference failed: {str(e)}"}, status=500)
 
 
-# =====================================================
-# Fetch existing segmented results
-# =====================================================
+# ==============================
+# GET Segmented Results Endpoint
+# ==============================
 def get_segmented_results(request):
     try:
         response_data = {}
-        YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output")
 
         for meal_type in ["before", "after"]:
-            meal_dir = os.path.join(YOLO_OUTPUT_DIR, meal_type)
-            segmented_image_path = os.path.join(
-                meal_dir,
-                f"segmented_yolo_{meal_type}.png"
-            )
+            YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output", meal_type)
+            output_filename = f"segmented_yolo_{meal_type}.png"
+            output_image_path = os.path.join(YOLO_OUTPUT_DIR, output_filename)
 
-            if not os.path.exists(segmented_image_path):
+            if not os.path.exists(output_image_path):
                 response_data[meal_type] = {
-                    "error": f"No YOLO segmented output found for '{meal_type}'"
+                    "segmented_image_url": None,
+                    "num_classes": 0,
+                    "class_names": [],
+                    "raw_weight": None,
+                    "estimated_volumes_ml": {}
                 }
                 continue
 
+            segmented_image_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}yolo_output/{meal_type}/{output_filename}"
+
+            # Load class names from masks CSV folder
+            masks_csv_dir = os.path.join(YOLO_OUTPUT_DIR, "masks_csv")
+            class_names = sorted([os.path.splitext(f)[0] for f in os.listdir(masks_csv_dir) if f.endswith(".csv")]) \
+                if os.path.exists(masks_csv_dir) else []
+
+            # Load raw_weight
+            raw_weight_file = os.path.join(YOLO_OUTPUT_DIR, "raw_weight.json")
+            raw_weight = None
+            if os.path.exists(raw_weight_file):
+                with open(raw_weight_file, "r") as f:
+                    raw_weight = json.load(f).get("raw_weight")
+
+            # Load estimated volumes
+            estimated_volumes = {}
+            volumes_file = os.path.join(YOLO_OUTPUT_DIR, "estimated_volumes.json")
+            if os.path.exists(volumes_file):
+                with open(volumes_file, "r") as f:
+                    estimated_volumes = json.load(f)
+
             response_data[meal_type] = {
-                "segmented_image_path": segmented_image_path,
+                "segmented_image_url": segmented_image_url,
+                "num_classes": len(class_names),
+                "class_names": class_names,
+                "raw_weight": raw_weight,
+                "estimated_volumes_ml": estimated_volumes
             }
 
         return JsonResponse({"status": "success", "results": response_data})
 
     except Exception as e:
-        return JsonResponse(
-            {"status": "error", "message": str(e)},
-            status=500
-        )
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)
 
 
 
