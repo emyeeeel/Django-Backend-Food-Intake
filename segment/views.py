@@ -1,7 +1,8 @@
 import os
-import subprocess
+import csv
 import numpy as np
 import cv2
+import torch
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -10,12 +11,15 @@ from django.conf import settings
 # YOLO model
 from ultralytics import YOLO
 
+
 # ================================
 # YOLO MODEL LOAD (cached)
 # ================================
-YOLO_MODEL_PATH = r"C:\Users\USER\Documents\Amiel Files\Food Intake\Django-Backend-Food-Intake-\segment\models\best.pt"
+YOLO_MODEL_PATH = r"C:\Users\HP\OneDrive\Documents\TEEP\Food Intake App\backend\segment\models\best.pt"
 
 yolo_model = None
+
+
 def load_yolo_model():
     global yolo_model
     if yolo_model is None:
@@ -25,15 +29,75 @@ def load_yolo_model():
 
 
 # =====================================================
+# Helper: Save per-class mask CSVs
+# =====================================================
+def save_class_mask_csvs(result, model, meal_type):
+    """
+    Saves one CSV per detected class.
+    CSV contains 1 for mask pixels, 0 otherwise.
+    """
+    if result.masks is None or result.boxes is None:
+        return {}
+
+    masks = result.masks.data.cpu()          # (N, H, W)
+    class_ids = result.boxes.cls.cpu().numpy().astype(int)
+
+    H, W = masks.shape[1], masks.shape[2]
+
+    masks_dir = os.path.join(
+        settings.MEDIA_ROOT,
+        "yolo_output",
+        meal_type,
+        "masks_csv"
+    )
+    os.makedirs(masks_dir, exist_ok=True)
+
+    class_to_mask = {}
+
+    # Group instance masks by class
+    for idx, class_id in enumerate(class_ids):
+        class_name = model.names[class_id]
+
+        binary_mask = (masks[idx] > 0).int()  # (H, W)
+
+        if class_name not in class_to_mask:
+            class_to_mask[class_name] = binary_mask.clone()
+        else:
+            class_to_mask[class_name] = torch.logical_or(
+                class_to_mask[class_name],
+                binary_mask
+            ).int()
+
+    saved_paths = {}
+
+    # Save CSV per class
+    for class_name, mask_tensor in class_to_mask.items():
+        csv_path = os.path.join(masks_dir, f"{class_name}.csv")
+
+        with open(csv_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            for row in mask_tensor.numpy():
+                writer.writerow(row.tolist())
+
+        saved_paths[class_name] = csv_path
+
+    return saved_paths
+
+
+# =====================================================
 # YOLO Inference Endpoint
 # =====================================================
 @csrf_exempt
 def yolo_segment_view(request, meal_type):
     """
-    Accepts POST with an RGB image, runs YOLO segmentation, and returns results.
+    Accepts POST with an RGB image, runs YOLO segmentation,
+    saves overlay image and per-class mask CSVs.
     """
     if meal_type not in ["before", "after"]:
-        return JsonResponse({"error": "Invalid meal type. Use /yolo/before or /yolo/after"}, status=400)
+        return JsonResponse(
+            {"error": "Invalid meal type. Use /yolo/before or /yolo/after"},
+            status=400
+        )
 
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
@@ -43,10 +107,11 @@ def yolo_segment_view(request, meal_type):
         return JsonResponse({"error": "rgb_image is required"}, status=400)
 
     # ------------------------------
-    # Save uploaded RGB
+    # Save uploaded RGB image
     # ------------------------------
     SEGMENT_UPLOAD_DIR = os.path.join(settings.MEDIA_ROOT, "segment_uploads")
     os.makedirs(SEGMENT_UPLOAD_DIR, exist_ok=True)
+
     rgb_filename = f"uploaded_rgb_{meal_type}.png"
     rgb_path = os.path.join(SEGMENT_UPLOAD_DIR, rgb_filename)
 
@@ -55,11 +120,15 @@ def yolo_segment_view(request, meal_type):
             f.write(chunk)
 
     # ------------------------------
-    # YOLO Output
+    # YOLO output paths
     # ------------------------------
     YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output", meal_type)
     os.makedirs(YOLO_OUTPUT_DIR, exist_ok=True)
-    output_image_path = os.path.join(YOLO_OUTPUT_DIR, f"segmented_yolo_{meal_type}.png")
+
+    output_image_path = os.path.join(
+        YOLO_OUTPUT_DIR,
+        f"segmented_yolo_{meal_type}.png"
+    )
 
     try:
         # Load YOLO model
@@ -68,7 +137,7 @@ def yolo_segment_view(request, meal_type):
         # Run inference
         results = model.predict(
             rgb_path,
-            conf=0.30,    
+            conf=0.30,
             iou=0.5,
             task="segment",
             imgsz=(848, 480),
@@ -81,27 +150,67 @@ def yolo_segment_view(request, meal_type):
         result.save(filename=output_image_path)
 
         # Extract classes
-        class_ids = result.boxes.cls.cpu().numpy().astype(int) if result.boxes is not None else []
+        class_ids = (
+            result.boxes.cls.cpu().numpy().astype(int)
+            if result.boxes is not None
+            else []
+        )
         class_names = sorted(list(set(model.names[c] for c in class_ids)))
         mask_count = len(result.masks.data) if result.masks is not None else 0
 
-        # Build response URLs
-        segmented_url = f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}yolo_output/{meal_type}/segmented_yolo_{meal_type}.png"
+        # Save per-class mask CSVs
+        mask_csv_paths = save_class_mask_csvs(result, model, meal_type)
 
-        # Return JSON
         return JsonResponse({
             "status": "success",
             "meal_type": meal_type,
-            "input_image": rgb_path,
-            "output_image": output_image_path,
-            "segmented_image_url": segmented_url,
+            "input_image_path": rgb_path,
+            "output_image_path": output_image_path,
             "num_classes": len(class_names),
             "class_names": class_names,
             "mask_count": mask_count,
+            "mask_csv_saved_for_classes": list(mask_csv_paths.keys()),
         })
 
     except Exception as e:
-        return JsonResponse({"error": f"YOLO inference failed: {str(e)}"}, status=500)
+        return JsonResponse(
+            {"error": f"YOLO inference failed: {str(e)}"},
+            status=500
+        )
+
+
+# =====================================================
+# Fetch existing segmented results
+# =====================================================
+def get_segmented_results(request):
+    try:
+        response_data = {}
+        YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output")
+
+        for meal_type in ["before", "after"]:
+            meal_dir = os.path.join(YOLO_OUTPUT_DIR, meal_type)
+            segmented_image_path = os.path.join(
+                meal_dir,
+                f"segmented_yolo_{meal_type}.png"
+            )
+
+            if not os.path.exists(segmented_image_path):
+                response_data[meal_type] = {
+                    "error": f"No YOLO segmented output found for '{meal_type}'"
+                }
+                continue
+
+            response_data[meal_type] = {
+                "segmented_image_path": segmented_image_path,
+            }
+
+        return JsonResponse({"status": "success", "results": response_data})
+
+    except Exception as e:
+        return JsonResponse(
+            {"status": "error", "message": str(e)},
+            status=500
+        )
 
 
 
@@ -244,35 +353,35 @@ def yolo_segment_view(request, meal_type):
 
 
 
-def get_segmented_results(request):
-    try:
-        response_data = {}
+# def get_segmented_results(request):
+#     try:
+#         response_data = {}
 
-        YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output")
+#         YOLO_OUTPUT_DIR = os.path.join(settings.MEDIA_ROOT, "yolo_output")
 
-        for meal_type in ["before", "after"]:
-            meal_dir = os.path.join(YOLO_OUTPUT_DIR, meal_type)
-            segmented_image_path = os.path.join(meal_dir, f"segmented_yolo_{meal_type}.png")
+#         for meal_type in ["before", "after"]:
+#             meal_dir = os.path.join(YOLO_OUTPUT_DIR, meal_type)
+#             segmented_image_path = os.path.join(meal_dir, f"segmented_yolo_{meal_type}.png")
 
-            if not os.path.exists(segmented_image_path):
-                response_data[meal_type] = {
-                    "error": f"No YOLO segmented output found for '{meal_type}'"
-                }
-                continue
+#             if not os.path.exists(segmented_image_path):
+#                 response_data[meal_type] = {
+#                     "error": f"No YOLO segmented output found for '{meal_type}'"
+#                 }
+#                 continue
 
-            # Optional: Extract class names from YOLO masks if needed
-            # For simplicity, here we just read the class names from the YOLO overlay image metadata if available
-            # If you want exact YOLO class extraction, we could save a JSON during inference and read it here
+#             # Optional: Extract class names from YOLO masks if needed
+#             # For simplicity, here we just read the class names from the YOLO overlay image metadata if available
+#             # If you want exact YOLO class extraction, we could save a JSON during inference and read it here
 
-            response_data[meal_type] = {
-                "segmented_image_path": segmented_image_path,
-                "segmented_image_url": f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}yolo_output/{meal_type}/segmented_yolo_{meal_type}.png",
-                # Optional placeholders for number of classes and class names
-                "num_classes": None,
-                "class_names": [],
-            }
+#             response_data[meal_type] = {
+#                 "segmented_image_path": segmented_image_path,
+#                 "segmented_image_url": f"{settings.PUBLIC_DOMAIN}{settings.MEDIA_URL}yolo_output/{meal_type}/segmented_yolo_{meal_type}.png",
+#                 # Optional placeholders for number of classes and class names
+#                 "num_classes": None,
+#                 "class_names": [],
+#             }
 
-        return JsonResponse({"status": "success", "results": response_data})
+#         return JsonResponse({"status": "success", "results": response_data})
 
-    except Exception as e:
-        return JsonResponse({"status": "error", "message": str(e)}, status=500)
+#     except Exception as e:
+#         return JsonResponse({"status": "error", "message": str(e)}, status=500)
