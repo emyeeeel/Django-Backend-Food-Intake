@@ -1,0 +1,3802 @@
+[
+{
+  "model": "meals.meal",
+  "pk": 1,
+  "fields": {
+    "meal_name": "Braised pork chop",
+    "meal_time": "午餐",
+    "day_cycle": "1",
+    "meal_description": "Braised pork chop",
+    "plate_type": "陶瓷碗",
+    "image": "meals/braised_pork_chop.jpg",
+    "created_at": "2025-11-24T12:34:16.123Z",
+    "updated_at": "2025-12-14T09:09:09.438Z",
+    "ingredients": [
+      45,
+      53,
+      56,
+      58,
+      59,
+      60,
+      62,
+      77,
+      79,
+      105,
+      107,
+      114,
+      156,
+      184,
+      190
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 2,
+  "fields": {
+    "meal_name": "Dried fish in soy sauce",
+    "meal_time": "晚餐",
+    "day_cycle": "1",
+    "meal_description": "Dried fish in soy sauce",
+    "plate_type": "金属板",
+    "image": "meals/braised_dried_fish.jpg",
+    "created_at": "2025-11-24T14:50:16.133Z",
+    "updated_at": "2025-12-14T09:09:45.888Z",
+    "ingredients": [
+      77,
+      186
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 3,
+  "fields": {
+    "meal_name": "Braised tofu sticks",
+    "meal_time": "晚餐",
+    "day_cycle": "1",
+    "meal_description": "Braised tofu sticks",
+    "plate_type": "陶瓷碗",
+    "image": "meals/braised_tofu.jpg",
+    "created_at": "2025-11-24T15:12:39.567Z",
+    "updated_at": "2025-12-14T09:10:13.256Z",
+    "ingredients": [
+      58,
+      59,
+      60,
+      74,
+      77,
+      108,
+      109,
+      114
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 4,
+  "fields": {
+    "meal_name": "Garlic sauce sausage",
+    "meal_time": "午餐",
+    "day_cycle": "1",
+    "meal_description": "Garlic sauce sausage",
+    "plate_type": "金属碗",
+    "image": "meals/galic_sausage.jfif",
+    "created_at": "2025-11-24T15:15:35.481Z",
+    "updated_at": "2025-12-14T09:10:48.997Z",
+    "ingredients": [
+      3,
+      9,
+      187
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 5,
+  "fields": {
+    "meal_name": "Beef Noodles",
+    "meal_time": "晚餐",
+    "day_cycle": "3",
+    "meal_description": "Beef Noodles",
+    "plate_type": "金属碗",
+    "image": "meals/beef_noodles_yzdUloP.png",
+    "created_at": "2025-12-11T16:06:14.918Z",
+    "updated_at": "2025-12-14T08:40:48.013Z",
+    "ingredients": [
+      44,
+      45,
+      50,
+      56,
+      58,
+      59,
+      60,
+      73,
+      77,
+      79,
+      108,
+      155,
+      156,
+      189
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 6,
+  "fields": {
+    "meal_name": "Jajangmyeon",
+    "meal_time": "午餐",
+    "day_cycle": "13",
+    "meal_description": "Jajangmyeon",
+    "plate_type": "陶瓷碗",
+    "image": "meals/jajangmyeon.png",
+    "created_at": "2025-12-11T16:09:11.294Z",
+    "updated_at": "2025-12-14T09:11:41.887Z",
+    "ingredients": [
+      44,
+      51,
+      53,
+      55,
+      60,
+      64,
+      77,
+      111,
+      154,
+      191,
+      192,
+      193
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 7,
+  "fields": {
+    "meal_name": "Lumpia",
+    "meal_time": "晚餐",
+    "day_cycle": "3",
+    "meal_description": "Lumpia",
+    "plate_type": "金属板",
+    "image": "meals/lumpia.png",
+    "created_at": "2025-12-11T16:19:32.178Z",
+    "updated_at": "2025-12-14T08:47:44.415Z",
+    "ingredients": [
+      45,
+      53,
+      54,
+      56,
+      58,
+      77,
+      79,
+      104,
+      105,
+      151,
+      152,
+      153
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 8,
+  "fields": {
+    "meal_name": "Bibimbap",
+    "meal_time": "午餐",
+    "day_cycle": "7",
+    "meal_description": "Bibimbap",
+    "plate_type": "金属板",
+    "image": "meals/bibimbap.png",
+    "created_at": "2025-12-11T18:34:02.098Z",
+    "updated_at": "2025-12-14T09:12:57.438Z",
+    "ingredients": [
+      37,
+      44,
+      55,
+      56,
+      58,
+      60,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 9,
+  "fields": {
+    "meal_name": "Fried chicken",
+    "meal_time": "晚餐",
+    "day_cycle": "3",
+    "meal_description": "fried chicken",
+    "plate_type": "陶瓷碗",
+    "image": "meals/fried-chicken_lbc7Fcr.png",
+    "created_at": "2025-12-12T11:21:14.707Z",
+    "updated_at": "2025-12-14T09:19:52.448Z",
+    "ingredients": [
+      10,
+      11,
+      29,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 10,
+  "fields": {
+    "meal_name": "Chicken Curry",
+    "meal_time": "晚餐",
+    "day_cycle": "14",
+    "meal_description": "Chicken Curry",
+    "plate_type": "金属板",
+    "image": "meals/chicken-curry.png",
+    "created_at": "2025-12-13T04:45:07.088Z",
+    "updated_at": "2025-12-14T09:20:37.439Z",
+    "ingredients": [
+      3,
+      4,
+      11,
+      14,
+      80,
+      87,
+      95,
+      100,
+      115,
+      122,
+      123,
+      124,
+      126,
+      199
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 11,
+  "fields": {
+    "meal_name": "Shrimp Fried Rice",
+    "meal_time": "晚餐",
+    "day_cycle": "3",
+    "meal_description": "Shrimp Fried Rice",
+    "plate_type": "金属板",
+    "image": "meals/shrimp-fried-rice.png",
+    "created_at": "2025-12-13T05:13:26.816Z",
+    "updated_at": "2025-12-14T09:22:07.344Z",
+    "ingredients": [
+      10,
+      11,
+      14,
+      19,
+      24,
+      49,
+      87,
+      147,
+      148
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 12,
+  "fields": {
+    "meal_name": "Adobo",
+    "meal_time": "晚餐",
+    "day_cycle": "6",
+    "meal_description": "Adobo",
+    "plate_type": "金属碗",
+    "image": "meals/adobo.png",
+    "created_at": "2025-12-13T05:52:02.276Z",
+    "updated_at": "2025-12-14T09:23:08.164Z",
+    "ingredients": [
+      44,
+      45,
+      53,
+      58,
+      73,
+      74,
+      77,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 13,
+  "fields": {
+    "meal_name": "Ramyeon",
+    "meal_time": "晚餐",
+    "day_cycle": "2",
+    "meal_description": "Ramyeon",
+    "plate_type": "金属板",
+    "image": "meals/ramyeon.png",
+    "created_at": "2025-12-13T06:04:20.504Z",
+    "updated_at": "2025-12-14T08:57:53.704Z",
+    "ingredients": [
+      44,
+      45,
+      54,
+      56,
+      60,
+      73,
+      75,
+      79,
+      108,
+      157,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      176,
+      177,
+      178
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 14,
+  "fields": {
+    "meal_name": "Carbonara",
+    "meal_time": "午餐",
+    "day_cycle": "3",
+    "meal_description": "Carbonara",
+    "plate_type": "金属碗",
+    "image": "meals/carbonara.png",
+    "created_at": "2025-12-13T06:06:58.446Z",
+    "updated_at": "2025-12-14T08:58:49.869Z",
+    "ingredients": [
+      45,
+      75,
+      79,
+      179,
+      180,
+      181
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 15,
+  "fields": {
+    "meal_name": "Spaghetti",
+    "meal_time": "晚餐",
+    "day_cycle": "10",
+    "meal_description": "Spaghetti",
+    "plate_type": "金属碗",
+    "image": "meals/spaghetti.png",
+    "created_at": "2025-12-13T06:07:09.854Z",
+    "updated_at": "2025-12-14T08:59:39.883Z",
+    "ingredients": [
+      3,
+      14,
+      97,
+      137,
+      140,
+      182,
+      183
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 16,
+  "fields": {
+    "meal_name": "Beef Steak",
+    "meal_time": "晚餐",
+    "day_cycle": "3",
+    "meal_description": "Beef Steak",
+    "plate_type": "金属板",
+    "image": "meals/beef-steak.png",
+    "created_at": "2025-12-13T06:07:15.895Z",
+    "updated_at": "2025-12-14T09:00:26.416Z",
+    "ingredients": [
+      12
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 17,
+  "fields": {
+    "meal_name": "Pizza",
+    "meal_time": "晚餐",
+    "day_cycle": "11",
+    "meal_description": "Pizza",
+    "plate_type": "金属板",
+    "image": "meals/pizza.png",
+    "created_at": "2025-12-13T07:46:58.936Z",
+    "updated_at": "2025-12-14T09:23:48.678Z",
+    "ingredients": [
+      3,
+      6,
+      11,
+      21,
+      29,
+      32,
+      97,
+      136,
+      139,
+      140,
+      143,
+      200
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 18,
+  "fields": {
+    "meal_name": "Kimchi fried rice",
+    "meal_time": "午餐",
+    "day_cycle": "4",
+    "meal_description": "Kimchi fried rice",
+    "plate_type": "金属碗",
+    "image": "meals/kimchi-fried-rice.png",
+    "created_at": "2025-12-13T07:59:36.811Z",
+    "updated_at": "2025-12-14T09:06:38.088Z",
+    "ingredients": []
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 19,
+  "fields": {
+    "meal_name": "Tonkatsu Ramen",
+    "meal_time": "晚餐",
+    "day_cycle": "4",
+    "meal_description": "curry fried rice",
+    "plate_type": "金属碗",
+    "image": "meals/tonkatsu-ramen.png",
+    "created_at": "2025-12-13T08:22:26.102Z",
+    "updated_at": "2025-12-14T09:03:10.333Z",
+    "ingredients": []
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 20,
+  "fields": {
+    "meal_name": "Caesar Salad",
+    "meal_time": "晚餐",
+    "day_cycle": "3",
+    "meal_description": "Tonkatsu",
+    "plate_type": "金属碗",
+    "image": "meals/caesar-salad.png",
+    "created_at": "2025-12-13T13:00:51.864Z",
+    "updated_at": "2025-12-14T09:04:34.726Z",
+    "ingredients": []
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 21,
+  "fields": {
+    "meal_name": "Fish Fillet",
+    "meal_time": "午餐",
+    "day_cycle": "9",
+    "meal_description": "Fish Fillet",
+    "plate_type": "金属碗",
+    "image": "meals/fish-fillet.png",
+    "created_at": "2025-12-13T13:39:48.380Z",
+    "updated_at": "2025-12-14T09:05:28.252Z",
+    "ingredients": [
+      186
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 22,
+  "fields": {
+    "meal_name": "Dumplings",
+    "meal_time": "午餐",
+    "day_cycle": "5",
+    "meal_description": "Dumplings",
+    "plate_type": "金属板",
+    "image": "meals/dumplings.png",
+    "created_at": "2025-12-14T09:13:46.602Z",
+    "updated_at": "2025-12-14T09:25:08.711Z",
+    "ingredients": [
+      3,
+      4,
+      24,
+      30,
+      150,
+      201
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 23,
+  "fields": {
+    "meal_name": "Onigiri",
+    "meal_time": "午餐",
+    "day_cycle": "13",
+    "meal_description": "Onigiri",
+    "plate_type": "金属板",
+    "image": "meals/onigiri.png",
+    "created_at": "2025-12-14T09:19:36.399Z",
+    "updated_at": "2025-12-14T09:26:00.509Z",
+    "ingredients": [
+      65,
+      79,
+      202,
+      203
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 24,
+  "fields": {
+    "meal_name": "Cordon Bleu",
+    "meal_time": "晚餐",
+    "day_cycle": "8",
+    "meal_description": "Cordon Bleu",
+    "plate_type": "金属板",
+    "image": "meals/meal_mjh096x.jpg",
+    "created_at": "2025-12-14T09:39:32.431Z",
+    "updated_at": "2025-12-14T09:40:45.634Z",
+    "ingredients": [
+      10,
+      11,
+      17,
+      80,
+      86,
+      91,
+      92,
+      200,
+      204
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 25,
+  "fields": {
+    "meal_name": "Stinky Tofu",
+    "meal_time": "午餐",
+    "day_cycle": "4",
+    "meal_description": "Stinky Tofu",
+    "plate_type": "陶瓷碗",
+    "image": "",
+    "created_at": "2025-12-14T13:09:08.867Z",
+    "updated_at": "2025-12-14T13:16:17.404Z",
+    "ingredients": [
+      3,
+      24,
+      96,
+      129,
+      207
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 26,
+  "fields": {
+    "meal_name": "lechon manok",
+    "meal_time": "晚餐",
+    "day_cycle": "2",
+    "meal_description": "lechon manok",
+    "plate_type": "金属板",
+    "image": "",
+    "created_at": "2025-12-14T13:10:28.059Z",
+    "updated_at": "2025-12-14T13:10:38.577Z",
+    "ingredients": [
+      45,
+      53,
+      58,
+      104,
+      109,
+      205
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 27,
+  "fields": {
+    "meal_name": "beef with broccoli",
+    "meal_time": "晚餐",
+    "day_cycle": "5",
+    "meal_description": "beef with broccoli",
+    "plate_type": "金属碗",
+    "image": "",
+    "created_at": "2025-12-14T13:11:54.341Z",
+    "updated_at": "2025-12-14T13:12:03.545Z",
+    "ingredients": [
+      12,
+      18
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 28,
+  "fields": {
+    "meal_name": "spaghetti bolognese",
+    "meal_time": "午餐",
+    "day_cycle": "13",
+    "meal_description": "spaghetti bolognese",
+    "plate_type": "金属碗",
+    "image": "",
+    "created_at": "2025-12-14T13:16:04.004Z",
+    "updated_at": "2025-12-15T05:01:24.960Z",
+    "ingredients": [
+      45,
+      58,
+      79,
+      133,
+      134,
+      179,
+      190,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 29,
+  "fields": {
+    "meal_name": "collared greens",
+    "meal_time": "午餐",
+    "day_cycle": "10",
+    "meal_description": "collared greens",
+    "plate_type": "金属碗",
+    "image": "",
+    "created_at": "2025-12-14T13:19:26.740Z",
+    "updated_at": "2025-12-15T05:04:26.895Z",
+    "ingredients": [
+      208
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 30,
+  "fields": {
+    "meal_name": "fish and chips",
+    "meal_time": null,
+    "day_cycle": null,
+    "meal_description": "fish and chips",
+    "plate_type": null,
+    "image": "",
+    "created_at": "2025-12-14T13:19:51.482Z",
+    "updated_at": "2025-12-14T13:19:51.514Z",
+    "ingredients": [
+      11,
+      25,
+      96,
+      188,
+      201,
+      209
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 31,
+  "fields": {
+    "meal_name": "beef caldereta",
+    "meal_time": null,
+    "day_cycle": null,
+    "meal_description": "beef caldereta",
+    "plate_type": null,
+    "image": "",
+    "created_at": "2025-12-14T13:23:03.500Z",
+    "updated_at": "2025-12-14T13:23:03.531Z",
+    "ingredients": [
+      3,
+      11,
+      12,
+      15,
+      17,
+      48,
+      125,
+      210,
+      211,
+      212,
+      213
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 32,
+  "fields": {
+    "meal_name": "Donut",
+    "meal_time": "晚餐",
+    "day_cycle": "9",
+    "meal_description": "Donut",
+    "plate_type": "金属碗",
+    "image": "",
+    "created_at": "2025-12-15T05:04:48.975Z",
+    "updated_at": "2025-12-15T05:05:11.963Z",
+    "ingredients": [
+      6,
+      11,
+      29,
+      81,
+      92,
+      136,
+      222
+    ]
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 33,
+  "fields": {
+    "meal_name": "fried chicken",
+    "meal_time": null,
+    "day_cycle": null,
+    "meal_description": "fried chicken",
+    "plate_type": null,
+    "image": "",
+    "created_at": "2025-12-16T06:26:49.040Z",
+    "updated_at": "2025-12-16T06:26:49.056Z",
+    "ingredients": [
+      10,
+      11,
+      17,
+      29,
+      80,
+      81,
+      83,
+      86,
+      223
+    ]
+  }
+},
+{
+  "model": "meals.mealassignment",
+  "pk": 1,
+  "fields": {
+    "patient": 1,
+    "meal": 1,
+    "meal_type": "lunch",
+    "day_cycle": 1,
+    "assigned_at": "2025-11-24T15:41:06.178Z"
+  }
+},
+{
+  "model": "meals.mealassignment",
+  "pk": 2,
+  "fields": {
+    "patient": 1,
+    "meal": 2,
+    "meal_type": "dinner",
+    "day_cycle": 1,
+    "assigned_at": "2025-11-24T15:41:21.692Z"
+  }
+},
+{
+  "model": "meals.mealassignment",
+  "pk": 3,
+  "fields": {
+    "patient": 2,
+    "meal": 4,
+    "meal_type": "lunch",
+    "day_cycle": 1,
+    "assigned_at": "2025-11-24T16:30:11.504Z"
+  }
+},
+{
+  "model": "meals.mealassignment",
+  "pk": 4,
+  "fields": {
+    "patient": 2,
+    "meal": 3,
+    "meal_type": "dinner",
+    "day_cycle": 1,
+    "assigned_at": "2025-11-24T16:30:25.804Z"
+  }
+},
+{
+  "model": "meals.mealassignment",
+  "pk": 5,
+  "fields": {
+    "patient": 3,
+    "meal": 1,
+    "meal_type": "lunch",
+    "day_cycle": 1,
+    "assigned_at": "2025-11-24T16:30:40.599Z"
+  }
+},
+{
+  "model": "meals.mealassignment",
+  "pk": 6,
+  "fields": {
+    "patient": 3,
+    "meal": 3,
+    "meal_type": "dinner",
+    "day_cycle": 1,
+    "assigned_at": "2025-11-24T16:30:56.946Z"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 1,
+  "fields": {
+    "name": "全穀雜糧類",
+    "description": "Whole Grains"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 2,
+  "fields": {
+    "name": "豆魚蛋肉類",
+    "description": "Beans/Fish/Egg/Meat"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 3,
+  "fields": {
+    "name": "蔬菜類",
+    "description": "Vegetables"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 4,
+  "fields": {
+    "name": "水果類",
+    "description": "Fruits"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 5,
+  "fields": {
+    "name": "乳品類",
+    "description": "Dairy Product"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 6,
+  "fields": {
+    "name": "堅果種子類",
+    "description": "Nuts and Seeds"
+  }
+},
+{
+  "model": "foods.foodgroup",
+  "pk": 7,
+  "fields": {
+    "name": "調味品類",
+    "description": "Condiments/Seasonings"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 1,
+  "fields": {
+    "name": "Carbohydrate"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 2,
+  "fields": {
+    "name": "Total Fiber"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 3,
+  "fields": {
+    "name": "Protein"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 4,
+  "fields": {
+    "name": "Fat"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 5,
+  "fields": {
+    "name": "Saturated fatty acids"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 6,
+  "fields": {
+    "name": "Trans fatty acids"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 7,
+  "fields": {
+    "name": "α-Linolenic Acid"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 8,
+  "fields": {
+    "name": "Linoleic Acid"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 9,
+  "fields": {
+    "name": "Dietary Cholesterol"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 10,
+  "fields": {
+    "name": "Total Water"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 11,
+  "fields": {
+    "name": "Fats"
+  }
+},
+{
+  "model": "foods.nutrient",
+  "pk": 12,
+  "fields": {
+    "name": "Water"
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "Pork chop",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      4,
+      5,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "Soy sauce",
+    "food_group": 2,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "Garlic",
+    "food_group": 3,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "Ginger",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "Cooking oil",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      4,
+      5,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 6,
+  "fields": {
+    "name": "Sugar",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 7,
+  "fields": {
+    "name": "Rice wine",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      1,
+      10
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 8,
+  "fields": {
+    "name": "Green onion",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 9,
+  "fields": {
+    "name": "Sausage",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 10,
+  "fields": {
+    "name": "Oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 11,
+  "fields": {
+    "name": "Salt",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 12,
+  "fields": {
+    "name": "Beef",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 13,
+  "fields": {
+    "name": "Noodles",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 14,
+  "fields": {
+    "name": "Onion",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 15,
+  "fields": {
+    "name": "Carrots",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 16,
+  "fields": {
+    "name": "Celery",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 17,
+  "fields": {
+    "name": "Pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 18,
+  "fields": {
+    "name": "Broccoli",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 19,
+  "fields": {
+    "name": "Carrot",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 20,
+  "fields": {
+    "name": "Bell Pepper",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 21,
+  "fields": {
+    "name": "Mushroom",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 22,
+  "fields": {
+    "name": "Snow Pea",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 23,
+  "fields": {
+    "name": "Bok Choy",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 24,
+  "fields": {
+    "name": "Scallion",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 25,
+  "fields": {
+    "name": "Potato",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 26,
+  "fields": {
+    "name": "Minced meat",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 27,
+  "fields": {
+    "name": "四季豆",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 28,
+  "fields": {
+    "name": "香腸",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 29,
+  "fields": {
+    "name": "Flour",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 30,
+  "fields": {
+    "name": "Pork",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 31,
+  "fields": {
+    "name": "Gelatin",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 32,
+  "fields": {
+    "name": "Water",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 33,
+  "fields": {
+    "name": "Stock",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 34,
+  "fields": {
+    "name": "all-purpose flour",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 35,
+  "fields": {
+    "name": "ground pork",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 36,
+  "fields": {
+    "name": "Shaoxing rice wine",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 37,
+  "fields": {
+    "name": "sesame oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 38,
+  "fields": {
+    "name": "white pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 39,
+  "fields": {
+    "name": "chicken bones",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 40,
+  "fields": {
+    "name": "pork bones",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 41,
+  "fields": {
+    "name": "rice vinegar",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 42,
+  "fields": {
+    "name": "egg noodles",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 43,
+  "fields": {
+    "name": "beef broth",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 44,
+  "fields": {
+    "name": "vegetable oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 45,
+  "fields": {
+    "name": "black pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 46,
+  "fields": {
+    "name": "Scallions",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 47,
+  "fields": {
+    "name": "Beef broth",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 48,
+  "fields": {
+    "name": "Onions",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 49,
+  "fields": {
+    "name": "Soy Sauce",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 50,
+  "fields": {
+    "name": "noodles",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 51,
+  "fields": {
+    "name": "black bean paste",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 52,
+  "fields": {
+    "name": "pork loin",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 53,
+  "fields": {
+    "name": "onion",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 54,
+  "fields": {
+    "name": "cabbage",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 55,
+  "fields": {
+    "name": "zucchini",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 56,
+  "fields": {
+    "name": "carrot",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 57,
+  "fields": {
+    "name": "mushrooms",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 58,
+  "fields": {
+    "name": "garlic",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 59,
+  "fields": {
+    "name": "ginger",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 60,
+  "fields": {
+    "name": "sugar",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 61,
+  "fields": {
+    "name": "corn starch",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 62,
+  "fields": {
+    "name": "water",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 63,
+  "fields": {
+    "name": "scallions",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 64,
+  "fields": {
+    "name": "cucumber",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 65,
+  "fields": {
+    "name": "rice",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 66,
+  "fields": {
+    "name": "mushroom",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 67,
+  "fields": {
+    "name": "spinach",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 68,
+  "fields": {
+    "name": "soybean sprout",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 69,
+  "fields": {
+    "name": "radish",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 70,
+  "fields": {
+    "name": "bellflower root",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 71,
+  "fields": {
+    "name": "bracken fern",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 72,
+  "fields": {
+    "name": "lettuce",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 73,
+  "fields": {
+    "name": "beef",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 74,
+  "fields": {
+    "name": "tofu",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 75,
+  "fields": {
+    "name": "egg",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 76,
+  "fields": {
+    "name": "gochujang",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 77,
+  "fields": {
+    "name": "soy sauce",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 78,
+  "fields": {
+    "name": "sesame seed",
+    "food_group": 6,
+    "image": "",
+    "nutrients": [
+      2,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 79,
+  "fields": {
+    "name": "salt",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 80,
+  "fields": {
+    "name": "Chicken",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 81,
+  "fields": {
+    "name": "Eggs",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 82,
+  "fields": {
+    "name": "Black pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 83,
+  "fields": {
+    "name": "Paprika",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 84,
+  "fields": {
+    "name": "Garlic powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 85,
+  "fields": {
+    "name": "Onion powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 86,
+  "fields": {
+    "name": "Breadcrumbs",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 87,
+  "fields": {
+    "name": "Rice",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 88,
+  "fields": {
+    "name": "Apple",
+    "food_group": 4,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 89,
+  "fields": {
+    "name": "Eggplant",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 90,
+  "fields": {
+    "name": "Spinach",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 91,
+  "fields": {
+    "name": "Egg",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 92,
+  "fields": {
+    "name": "Butter",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 93,
+  "fields": {
+    "name": "Curry Powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 94,
+  "fields": {
+    "name": "Garam Masala",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 95,
+  "fields": {
+    "name": "Turmeric",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 96,
+  "fields": {
+    "name": "Vegetable Oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 97,
+  "fields": {
+    "name": "Tomato",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 98,
+  "fields": {
+    "name": "Chili Pepper",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 99,
+  "fields": {
+    "name": "Coconut Milk",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 100,
+  "fields": {
+    "name": "Cumin",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 101,
+  "fields": {
+    "name": "Coriander Powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 102,
+  "fields": {
+    "name": "Chili Powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 103,
+  "fields": {
+    "name": "Cilantro",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 104,
+  "fields": {
+    "name": "chicken",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 105,
+  "fields": {
+    "name": "pork",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 106,
+  "fields": {
+    "name": "squid",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 107,
+  "fields": {
+    "name": "bay leaf",
+    "food_group": 3,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 108,
+  "fields": {
+    "name": "scallion",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 109,
+  "fields": {
+    "name": "vinegar",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 110,
+  "fields": {
+    "name": "brown sugar",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 111,
+  "fields": {
+    "name": "potato",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 112,
+  "fields": {
+    "name": "curry powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 113,
+  "fields": {
+    "name": "coconut milk",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 114,
+  "fields": {
+    "name": "oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 115,
+  "fields": {
+    "name": "Coriander",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 116,
+  "fields": {
+    "name": "chicken breast",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 117,
+  "fields": {
+    "name": "bell pepper",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 118,
+  "fields": {
+    "name": "tomato",
+    "food_group": 4,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 119,
+  "fields": {
+    "name": "turmeric",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 120,
+  "fields": {
+    "name": "cumin",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 121,
+  "fields": {
+    "name": "coriander",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 122,
+  "fields": {
+    "name": "Vegetable oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 123,
+  "fields": {
+    "name": "Curry powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 124,
+  "fields": {
+    "name": "Coconut milk",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      1,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 125,
+  "fields": {
+    "name": "Potatoes",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 126,
+  "fields": {
+    "name": "Cayenne pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 127,
+  "fields": {
+    "name": "Chili pepper",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 128,
+  "fields": {
+    "name": "Garam masala",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 129,
+  "fields": {
+    "name": "Tofu",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 130,
+  "fields": {
+    "name": "cayenne pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 131,
+  "fields": {
+    "name": "Bell pepper",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 132,
+  "fields": {
+    "name": "potatoes",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 133,
+  "fields": {
+    "name": "carrots",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 134,
+  "fields": {
+    "name": "onions",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 135,
+  "fields": {
+    "name": "Cooking Oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 136,
+  "fields": {
+    "name": "Yeast",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 137,
+  "fields": {
+    "name": "Olive Oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 138,
+  "fields": {
+    "name": "Cornmeal",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 139,
+  "fields": {
+    "name": "Oregano",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 140,
+  "fields": {
+    "name": "Basil",
+    "food_group": 3,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 141,
+  "fields": {
+    "name": "Mozzarella Cheese",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 142,
+  "fields": {
+    "name": "Parmesan Cheese",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 143,
+  "fields": {
+    "name": "Pepperoni",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 144,
+  "fields": {
+    "name": "Wheat flour",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 145,
+  "fields": {
+    "name": "Mozzarella cheese",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 146,
+  "fields": {
+    "name": "Kimchi",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 147,
+  "fields": {
+    "name": "Shrimp",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 148,
+  "fields": {
+    "name": "Pea",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 149,
+  "fields": {
+    "name": "Bacon",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 150,
+  "fields": {
+    "name": "Cabbage",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 151,
+  "fields": {
+    "name": "spring roll wrapper",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 152,
+  "fields": {
+    "name": "shrimp",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 153,
+  "fields": {
+    "name": "cooking oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 154,
+  "fields": {
+    "name": "wheat noodles",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 155,
+  "fields": {
+    "name": "bok choy",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 156,
+  "fields": {
+    "name": "star anise",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 157,
+  "fields": {
+    "name": "wheat flour",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 158,
+  "fields": {
+    "name": "pork broth",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 159,
+  "fields": {
+    "name": "bean sprout",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 160,
+  "fields": {
+    "name": "wheat flour noodles",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 161,
+  "fields": {
+    "name": "monosodium glutamate",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 162,
+  "fields": {
+    "name": "chili powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 163,
+  "fields": {
+    "name": "garlic powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 164,
+  "fields": {
+    "name": "onion powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 165,
+  "fields": {
+    "name": "soy sauce powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 166,
+  "fields": {
+    "name": "shiitake mushroom",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 167,
+  "fields": {
+    "name": "seaweed",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 168,
+  "fields": {
+    "name": "beef extract powder",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 169,
+  "fields": {
+    "name": "egg powder",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 170,
+  "fields": {
+    "name": "Miso paste",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 171,
+  "fields": {
+    "name": "Dashi",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 172,
+  "fields": {
+    "name": "Wheat noodles",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 173,
+  "fields": {
+    "name": "Pork broth",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 174,
+  "fields": {
+    "name": "Bean sprouts",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 175,
+  "fields": {
+    "name": "Bok choy",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 176,
+  "fields": {
+    "name": "wheat starch",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 177,
+  "fields": {
+    "name": "potassium carbonate",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 178,
+  "fields": {
+    "name": "MSG",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 179,
+  "fields": {
+    "name": "spaghetti",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 180,
+  "fields": {
+    "name": "guanciale",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 181,
+  "fields": {
+    "name": "Pecorino Romano",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 182,
+  "fields": {
+    "name": "Spaghetti",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 183,
+  "fields": {
+    "name": "Ground Beef",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 184,
+  "fields": {
+    "name": "rice wine",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 185,
+  "fields": {
+    "name": "cornstarch",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 186,
+  "fields": {
+    "name": "fish",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 187,
+  "fields": {
+    "name": "Sauce",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 188,
+  "fields": {
+    "name": "Fish",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 189,
+  "fields": {
+    "name": "five-spice powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 190,
+  "fields": {
+    "name": "celery",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 191,
+  "fields": {
+    "name": "pork belly",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 192,
+  "fields": {
+    "name": "daikon radish",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 193,
+  "fields": {
+    "name": "chicken stock",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 194,
+  "fields": {
+    "name": "flour",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 195,
+  "fields": {
+    "name": "breadcrumbs",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 196,
+  "fields": {
+    "name": "milk",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      1,
+      3,
+      11,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 197,
+  "fields": {
+    "name": "pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 198,
+  "fields": {
+    "name": "paprika",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 199,
+  "fields": {
+    "name": "Tomatoes",
+    "food_group": 4,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 200,
+  "fields": {
+    "name": "Cheese",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 201,
+  "fields": {
+    "name": "Wheat Flour",
+    "food_group": 1,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 202,
+  "fields": {
+    "name": "nori",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 203,
+  "fields": {
+    "name": "salmon",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 204,
+  "fields": {
+    "name": "Ham",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 205,
+  "fields": {
+    "name": "liver",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 206,
+  "fields": {
+    "name": "Black Pepper",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 207,
+  "fields": {
+    "name": "Chili",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 208,
+  "fields": {
+    "name": "collard greens",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      3,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 209,
+  "fields": {
+    "name": "Vinegar",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 210,
+  "fields": {
+    "name": "Bell peppers",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 211,
+  "fields": {
+    "name": "Tomato sauce",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 212,
+  "fields": {
+    "name": "Liver spread",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 213,
+  "fields": {
+    "name": "Olive oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 214,
+  "fields": {
+    "name": "ground beef",
+    "food_group": 2,
+    "image": "",
+    "nutrients": [
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 215,
+  "fields": {
+    "name": "tomatoes",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2,
+      12
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 216,
+  "fields": {
+    "name": "olive oil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 217,
+  "fields": {
+    "name": "tomato paste",
+    "food_group": 3,
+    "image": "",
+    "nutrients": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 218,
+  "fields": {
+    "name": "basil",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 219,
+  "fields": {
+    "name": "oregano",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 220,
+  "fields": {
+    "name": "bay leaves",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 221,
+  "fields": {
+    "name": "red wine",
+    "food_group": 7,
+    "image": "",
+    "nutrients": [
+      1,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 222,
+  "fields": {
+    "name": "Milk",
+    "food_group": 5,
+    "image": "",
+    "nutrients": [
+      1,
+      3,
+      11
+    ]
+  }
+},
+{
+  "model": "foods.ingredient",
+  "pk": 223,
+  "fields": {
+    "name": "Garlic Powder",
+    "food_group": 7,
+    "image": "",
+    "nutrients": []
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 1,
+  "fields": {
+    "name": "Granny",
+    "age": 72,
+    "sex": "female",
+    "height_cm": 173.0,
+    "weight_kg": 98.0,
+    "heart_rate": 93,
+    "systolic_bp": 140,
+    "diastolic_bp": 90,
+    "created_at": "2025-11-23T09:28:52.496Z",
+    "updated_at": "2025-11-24T14:54:04.922Z",
+    "activity_level": "active"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 2,
+  "fields": {
+    "name": "John Doe",
+    "age": 84,
+    "sex": "male",
+    "height_cm": 168.0,
+    "weight_kg": 70.0,
+    "heart_rate": 85,
+    "systolic_bp": 120,
+    "diastolic_bp": 80,
+    "created_at": "2025-11-23T13:50:51.742Z",
+    "updated_at": "2025-11-24T15:16:02.755Z",
+    "activity_level": "low_active"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 3,
+  "fields": {
+    "name": "Bernandina",
+    "age": 72,
+    "sex": "female",
+    "height_cm": 155.0,
+    "weight_kg": 53.0,
+    "heart_rate": 86,
+    "systolic_bp": 112,
+    "diastolic_bp": 79,
+    "created_at": "2025-11-24T07:43:25.971Z",
+    "updated_at": "2025-11-24T15:16:14.905Z",
+    "activity_level": "low_active"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 4,
+  "fields": {
+    "name": "Elmo",
+    "age": 71,
+    "sex": "male",
+    "height_cm": 160.0,
+    "weight_kg": 63.5,
+    "heart_rate": null,
+    "systolic_bp": null,
+    "diastolic_bp": null,
+    "created_at": "2025-11-25T11:34:42.513Z",
+    "updated_at": "2025-11-25T11:37:42.104Z",
+    "activity_level": "low_active"
+  }
+}
+]
